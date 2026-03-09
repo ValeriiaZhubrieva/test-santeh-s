@@ -1,0 +1,213 @@
+.hero {
+  margin-bottom: 120px;
+}
+.hero__body {
+  position: relative;
+  padding-left: 429px;
+}
+.hero__catalog {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+.hero__catalog .menu-catalog__container {
+  padding: 0;
+}
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.hero__slider {
+  position: relative;
+}
+.hero__slider .swiper-pagination:not(:first-child) {
+  margin-top: 20px;
+}
+.hero__slider .swiper-pagination:not(:last-child) {
+  margin-bottom: 20px;
+}
+.hero__slider .swiper-button-prev,
+.hero__slider .swiper-button-next {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.hero__slider:not(.swiper-initialized) .swiper-wrapper {
+  display: flex;
+  gap: 10px;
+}
+.hero__slider:not(.swiper-initialized) .swiper-slide:nth-child(n+4) {
+  display: none;
+}
+.hero__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.hero__slide img {
+  border-radius: inherit;
+  max-height: 100%;
+  object-fit: cover;
+}
+.hero__slider-nav {
+  position: absolute;
+  top: 50%;
+  left: 24px;
+  right: 24px;
+  z-index: 3;
+  transform: translate(0px, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  pointer-events: none;
+}
+.hero__slider-nav > * {
+  pointer-events: all;
+}
+.hero__brands {
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 3px 30px 0 rgba(0, 5, 98, 0.1);
+  background-color: var(--clr-white);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.hero__brands-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.hero__brands-title {
+  flex: 1 1 auto;
+  display: flex;
+  gap: 16px;
+}
+.hero__brands-title::after {
+  content: "";
+  align-self: end;
+  margin-bottom: 10px;
+  flex: 1 1 auto;
+  height: 1px;
+  background: linear-gradient(to right, var(--clr-black-10) 50%, transparent 50%);
+  background-position: 50%;
+  background-repeat: repeat-x;
+  background-size: 24px 1px;
+}
+.hero__brands-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.hero__brands-item {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid var(--clr-gray-150);
+  background-color: var(--clr-white);
+  border-radius: 12px;
+  transition: background 0.3s;
+}
+.hero__brands-item img {
+  max-height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+@media (width <= 74.99875em) {
+  .hero__body {
+    padding-left: 367px;
+  }
+  .hero__brands {
+    padding: 24px;
+  }
+}
+@media (width <= 61.99875em) {
+  .hero__body {
+    padding-left: 0;
+  }
+  .hero__catalog {
+    display: none;
+    visibility: hidden;
+  }
+}
+@media (width <= 47.99875em) {
+  .hero {
+    margin-bottom: 64px;
+  }
+  .hero__slide {
+    border-radius: 16px;
+  }
+  .hero__slider-nav {
+    display: none;
+  }
+  .hero__brands {
+    padding: 16px;
+  }
+}
+@media (width <= 40.62375em) {
+  .hero__slider:not(.swiper-initialized) .swiper-wrapper {
+    gap: 4px;
+  }
+  .hero__slider:not(.swiper-initialized) .swiper-slide:nth-child(n+3) {
+    display: none;
+  }
+  .hero__brands-title::after {
+    display: none;
+  }
+  .hero__brands-item {
+    min-height: 98px;
+  }
+}
+@media (width <= 29.99875em) {
+  .hero__brands {
+    box-shadow: none;
+    background-color: none;
+    padding: 0;
+  }
+  .hero__brands-head {
+    flex-direction: column;
+  }
+  .hero__brands-all {
+    padding: 5px 12px;
+    min-height: 36px;
+    font-size: 15px;
+  }
+  .hero__brands-items {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+  .hero__brands-item {
+    box-shadow: 0 1px 20px 0 rgba(0, 5, 98, 0.15);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+  }
+  .hero__brands-item img {
+    transform: scale(0.7);
+  }
+}
+@media (width <= 23.12375em) {
+  .hero__slider:not(.swiper-initialized) .swiper-wrapper {
+    gap: 4px;
+  }
+  .hero__slider:not(.swiper-initialized) .swiper-slide:nth-child(n+2) {
+    display: none;
+  }
+}
+@media (any-hover: hover) {
+  .hero__brands-item:hover {
+    background-color: var(--clr-gray-25);
+  }
+}
