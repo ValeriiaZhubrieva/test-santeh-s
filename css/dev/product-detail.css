@@ -1154,6 +1154,7 @@
     object-fit: cover;
   }
   .product-detail__one-click {
+    font-size: 14px;
     min-width: 36px;
     min-height: 36px;
     padding: 6px;

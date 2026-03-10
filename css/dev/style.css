@@ -430,8 +430,8 @@ textarea.input {
 
 .swiper-button-prev,
 .swiper-button-next {
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   display: grid;
   place-content: center;
   padding: 5px;
