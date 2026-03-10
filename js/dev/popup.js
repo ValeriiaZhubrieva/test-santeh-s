@@ -1,4 +1,4 @@
-import { b as bodyLock, a as bodyUnlock, c as bodyLockStatus } from "./common.min.js";
+import { b as bodyLock, c as bodyUnlock, e as bodyLockStatus } from "./common.min.js";
 class Popup {
   constructor(options) {
     let config = {
@@ -36,9 +36,9 @@ class Popup {
       bodyLock: true,
       // Блокування скролла
       hashSettings: {
-        location: true,
+        location: false,
         // Хеш в адресному рядку
-        goHash: true
+        goHash: false
         // Перехід по наявності в адресному рядку
       },
       on: {

@@ -290,6 +290,7 @@
     left: auto;
     right: -100%;
     height: var(--viewport-height);
+    background-color: var(--clr-white);
     z-index: 10;
     padding: 0;
     opacity: 1;

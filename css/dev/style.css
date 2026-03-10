@@ -88,6 +88,8 @@ address {
   --clr-black-10: rgba(0, 0, 0, 0.1);
   --clr-black-30: rgba(0, 0, 0, 0.3);
   --clr-black-40: rgba(0, 0, 0, 0.4);
+  --clr-black-60: rgba(0, 0, 0, 0.6);
+  --clr-black-80: rgba(0, 0, 0, 0.8);
   --clr-white: #fff;
   /* Акцентные и брендовые */
   --clr-accent: #45b9d7;
@@ -408,6 +410,11 @@ textarea.input {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.input-field--fw {
+  flex: 1 1 auto;
+  max-width: 100%;
+  width: 100%;
 }
 .input-field__label {
   font-weight: 500;
@@ -831,8 +838,11 @@ textarea.input {
   position: relative;
   z-index: 2;
 }
-.--showmore-active .show-more-btn .show-more-btn__icon, .show-more-btn.is-active .show-more-btn__icon {
-  transform: rotate(-45deg);
+.--showmore-active .show-more-btn .show-more-btn__icon svg:first-child, .show-more-btn.is-active .show-more-btn__icon svg:first-child {
+  display: none;
+}
+.--showmore-active .show-more-btn .show-more-btn__icon svg:last-child, .show-more-btn.is-active .show-more-btn__icon svg:last-child {
+  display: block;
 }
 .--showmore-active .show-more-btn .show-more-btn__texts span:first-child, .show-more-btn.is-active .show-more-btn__texts span:first-child {
   display: none;
@@ -847,7 +857,9 @@ textarea.input {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s;
+}
+.show-more-btn__icon svg:last-child {
+  display: none;
 }
 .show-more-btn__texts span:last-child {
   display: none;
@@ -1053,6 +1065,77 @@ textarea.input {
 .tippy-icon[disabled] {
   display: none;
 }
+
+hr {
+  border-bottom: 4px solid var(--clr-gray-350);
+}
+hr:not(:first-child) {
+  margin-top: 32px;
+}
+hr:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.review-block {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.review-block__product {
+  display: flex;
+  align-items: start;
+  gap: 25px;
+  padding-right: 55px;
+}
+.review-block__product-img {
+  flex-shrink: 0;
+  border-radius: 12px;
+  width: 95px;
+  height: 95px;
+  padding: 10px;
+  box-shadow: 0 1px 20px 0 rgba(0, 5, 98, 0.15);
+  background-color: var(--clr-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.review-block__product-img img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+}
+.review-block__product-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.review-block__product-name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  color: var(--clr-gray-800-08);
+}
+.review-block__form {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.review-block__form-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+.review-block__form-inputs > * {
+  flex: 1 1 auto;
+  min-width: calc(50% - 12px);
+}
+.review-block__btns {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
 @media (width <= 61.99875em){
   .breadcrumbs {
     display: grid;
@@ -1131,6 +1214,12 @@ textarea.input {
   }
   .breadcrumbs__link:not(:first-child, :last-child) {
     display: none;
+  }
+  hr:not(:first-child) {
+    margin-top: 24px;
+  }
+  hr:not(:last-child) {
+    margin-bottom: 24px;
   }
 }
 @media (width <= 40.62375em){
@@ -1215,6 +1304,25 @@ textarea.input {
   .product-card__status {
     font-size: 12px;
   }
+  .review-block {
+    gap: 24px;
+  }
+  .review-block__product {
+    padding-right: 0;
+    gap: 16px;
+  }
+  .review-block__product-title {
+    font-size: 22px;
+  }
+  .review-block__product-name {
+    font-size: 15px;
+  }
+  .review-block__form {
+    gap: 24px;
+  }
+  .review-block__btn {
+    max-width: 100%;
+  }
 }
 @media (width > 29.99875em) and (width <= 107em){
   .title--h1 {
@@ -1231,6 +1339,9 @@ textarea.input {
   }
   .product-card__title {
     font-size: clamp( 12px , 10.4416486745px  +  0.3246700541vw , 16px );
+  }
+  .review-block__product-title {
+    font-size: clamp( 22px , 16.5457703609px  +  1.1363451892vw , 36px );
   }
 }
 @media (width > 47.99875em){
@@ -1274,6 +1385,9 @@ textarea.input {
   }
   .product-card__title {
     font-size: 16px;
+  }
+  .review-block__product-title {
+    font-size: 36px;
   }
 }
 @media (any-hover: hover){

@@ -1,4 +1,4 @@
-import { d as dataMediaQueries, s as slideUp, e as slideDown } from "./common.min.js";
+import { d as dataMediaQueries, s as slideUp, a as slideDown } from "./common.min.js";
 function showMore() {
   const showMoreBlocks = document.querySelectorAll("[data-fls-showmore]");
   let showMoreBlocksRegular;
@@ -46,12 +46,14 @@ function showMore() {
     const originalHeight = getOriginalHeight(showMoreContent);
     if (originalHeight - hiddenHeight > 2) {
       showMoreButton.hidden = false;
+      showMoreBlock.classList.remove("--showmore-full");
       if (!showMoreBlock.classList.contains("--showmore-active")) {
         slideUp(showMoreContent, 0, hiddenHeight);
       }
     } else {
       slideDown(showMoreContent, 0, originalHeight);
       showMoreButton.hidden = true;
+      showMoreBlock.classList.add("--showmore-full");
     }
   }
   function parseMediaPairs(str) {
@@ -104,13 +106,16 @@ function showMore() {
           showMoreBlock.classList.contains("--showmore-active") ? originalHeight : hiddenHeight
         );
         showMoreButton.hidden = false;
+        showMoreBlock.classList.remove("--showmore-full");
       } else {
         slideDown(showMoreContent, 0, originalHeight);
         showMoreButton.hidden = true;
+        showMoreBlock.classList.add("--showmore-full");
       }
     } else {
       slideDown(showMoreContent, 0, originalHeight);
       showMoreButton.hidden = true;
+      showMoreBlock.classList.add("--showmore-full");
     }
   }
   function getHeight(showMoreBlock, showMoreContent) {

@@ -4,11 +4,12 @@
   left: 0;
   z-index: 20;
   width: 100%;
-  padding: 24px 13px;
+  padding: 24px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
   visibility: hidden;
   transform: scale(0);
   transition: visibility 0.3s, transform 0.3s, bottom 0.3s;
@@ -18,7 +19,11 @@
   visibility: visible;
   transform: scale(1);
 }
+.add-to-cart__inner {
+  padding: 0 13px;
+}
 .add-to-cart__body {
+  pointer-events: all;
   max-width: 1108px;
   width: 100%;
   border-radius: 20px;

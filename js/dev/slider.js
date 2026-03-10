@@ -1,4 +1,4 @@
-import { S as Swiper, N as Navigation, P as Pagination, A as Autoplay } from "./swiper.min.js";
+import { S as Swiper, N as Navigation, P as Pagination, A as Autoplay, T as Thumb } from "./swiper.min.js";
 function toggleLockSliderClass(swiper) {
   const nextBtn = swiper.el.parentElement.querySelector(".swiper-button-next");
   const pagination = swiper.el.parentElement.querySelector(".swiper-pagination");
@@ -142,6 +142,49 @@ function initSliders() {
             toggleLockSliderClass(this);
           }
         }
+      });
+    });
+  }
+  const productSlider = document.querySelectorAll(".product-detail__slider");
+  if (productSlider.length) {
+    const pageProductThumbs = new Swiper(".product-detail__thumbs", {
+      modules: [],
+      observer: true,
+      observeParents: true,
+      slidesPerView: 8,
+      spaceBetween: 8,
+      speed: 800,
+      breakpoints: {
+        319.98: {
+          slidesPerView: 6,
+          spaceBetween: 8
+        },
+        649.98: {
+          spaceBetween: 8
+        }
+      }
+    });
+    productSlider.forEach((slider) => {
+      const parentSlider = slider.parentElement;
+      const swiperNextBtn = parentSlider.querySelector(".swiper-button-next");
+      const swiperPrevBtn = parentSlider.querySelector(".swiper-button-prev");
+      parentSlider.querySelector(".swiper-pagination");
+      new Swiper(slider, {
+        modules: [Navigation, Pagination, Thumb],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        speed: 600,
+        navigation: {
+          prevEl: swiperPrevBtn,
+          nextEl: swiperNextBtn
+        },
+        thumbs: {
+          swiper: pageProductThumbs,
+          autoScrollOffset: 1
+        },
+        on: {}
       });
     });
   }
