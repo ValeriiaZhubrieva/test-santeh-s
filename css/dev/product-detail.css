@@ -858,13 +858,13 @@
     border-radius: 16px;
   }
   .product-detail__buy-fixed {
-    border-radius: 16px;
+    border-radius: 16px 16px 0 0;
     position: fixed;
-    z-index: 20;
+    z-index: 1500;
     top: auto;
-    bottom: 10px;
-    left: 16px;
-    right: 16px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
   }
   .product-detail__content {
     max-width: 100%;
