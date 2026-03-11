@@ -123,6 +123,7 @@ address {
   --clr-gray-100: #f3f4f6;
   --clr-gray-50: #e6eaef;
   --clr-gray-25: #f8f8f8;
+  --clr-gray-15: #f1f1f1;
 }
 
 @supports (height: 100dvh) {
@@ -499,6 +500,19 @@ textarea.input {
 .swiper-pagination-bullet.swiper-pagination-bullet-active::before {
   width: 100%;
   transition: width 0.4s, height 0.4s;
+}
+
+.swiper-scrollbar {
+  width: 100%;
+  height: 3px;
+  background-color: rgba(196, 206, 227, 0.25);
+  border-radius: 3px;
+}
+
+.swiper-scrollbar-drag {
+  background-color: var(--clr-accent);
+  border-radius: 3px;
+  height: 100%;
 }
 
 .product-card {

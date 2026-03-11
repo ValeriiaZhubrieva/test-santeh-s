@@ -91,16 +91,72 @@
 .text-section__body img:not(:last-child) {
   margin-bottom: 30px;
 }
-.text-section__body table {
-  border-collapse: collapse;
+.text-section__body .table-block {
   width: 100%;
+  display: grid;
+  overflow: auto hidden;
 }
-.text-section__body table tr {
+.text-section__body .table-block:not(:first-child) {
+  margin-top: 24px;
+}
+.text-section__body .table-block:not(:last-child) {
+  margin-bottom: 24px;
+}
+.text-section__body table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  table-layout: fixed;
+  word-break: break-word;
   border: 1px solid var(--clr-gray-50);
+  overflow: hidden;
+  border-radius: 15px;
 }
+.text-section__body table:not(:first-child) {
+  margin-top: 24px;
+}
+.text-section__body table:not(:last-child) {
+  margin-bottom: 24px;
+}
+.text-section__body table thead {
+  background-color: var(--clr-gray-15);
+  border-bottom: 1px solid var(--clr-gray-50);
+}
+.text-section__body table thead th {
+  padding: 27px 16px;
+}
+.text-section__body table tr:not(:last-child) {
+  border-bottom: 1px solid var(--clr-gray-50);
+}
+.text-section__body table tr > *:first-child {
+  font-size: 18px;
+  text-align: left;
+  background-color: var(--clr-gray-15);
+}
+.text-section__body table tr > *:not(:first-child) {
+  text-align: center;
+}
+.text-section__body table tr:last-child td {
+  border-bottom: none;
+}
+.text-section__body table th,
 .text-section__body table td {
-  border: 1px solid var(--clr-gray-50);
+  width: 220px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: var(--clr-gray-800);
+  min-width: min-content;
   padding: 8px 16px;
+  border-bottom: 1px solid var(--clr-gray-50);
+}
+.text-section__body table th:not(:last-child),
+.text-section__body table td:not(:last-child) {
+  border-right: 1px solid var(--clr-gray-50);
+}
+.text-section__body table th {
+  font-weight: 500;
+  font-size: 18px;
 }
 .text-section__body blockquote {
   display: flex;
@@ -132,6 +188,26 @@
   .text-section__body img:not(:last-child) {
     margin-bottom: 24px;
   }
+  .text-section__body .table-block {
+    width: auto;
+    padding: 0 16px 16px 16px;
+    margin-inline: -16px;
+  }
+  .text-section__body table thead th {
+    padding: 12px;
+  }
+  .text-section__body table tr > *:first-child {
+    font-size: 16px;
+  }
+  .text-section__body table th,
+  .text-section__body table td {
+    width: 200px;
+    padding: 12px;
+    font-size: 14px;
+  }
+  .text-section__body table th {
+    font-size: 16px;
+  }
   .text-section__body blockquote {
     padding: 10px;
   }
@@ -144,7 +220,7 @@
 }
 @media (width <= 29.99875em) {
   .text-section__body h1 {
-    font-size: 38px;
+    font-size: 36px;
   }
   .text-section__body h2 {
     font-size: 32px;
@@ -158,7 +234,7 @@
 }
 @media (width > 29.99875em) and (width <= 107em) {
   .text-section__body h1 {
-    font-size: clamp( 38px , 27.8707163845px  +  2.1103553514vw , 64px );
+    font-size: clamp( 36px , 25.0915407217px  +  2.2726903784vw , 64px );
   }
   .text-section__body h2 {
     font-size: clamp( 32px , 30.4416486745px  +  0.3246700541vw , 36px );

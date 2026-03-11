@@ -1,4 +1,24 @@
-import { S as Swiper, N as Navigation, P as Pagination, A as Autoplay, T as Thumb } from "./swiper.min.js";
+import { S as Swiper, N as Navigation, P as Pagination, A as Autoplay, T as Thumb, a as Scrollbar } from "./swiper.min.js";
+const resizableSwiper = (breakpoint, swiperElementOrClass, swiperSettings, callback) => {
+  const swiperElement = typeof swiperElementOrClass === "string" ? document.querySelector(swiperElementOrClass) : swiperElementOrClass;
+  if (swiperElement) {
+    let swiper;
+    breakpoint = window.matchMedia(breakpoint);
+    const enableSwiper = function(element, settings) {
+      swiper = new Swiper(element, settings);
+    };
+    const checker = function() {
+      if (breakpoint.matches) {
+        return enableSwiper(swiperElement, swiperSettings);
+      } else {
+        if (swiper !== void 0) swiper.destroy(true, true);
+        return;
+      }
+    };
+    breakpoint.addEventListener("change", checker);
+    checker();
+  }
+};
 function toggleLockSliderClass(swiper) {
   const nextBtn = swiper.el.parentElement.querySelector(".swiper-button-next");
   const pagination = swiper.el.parentElement.querySelector(".swiper-pagination");
@@ -10,7 +30,23 @@ function toggleLockSliderClass(swiper) {
     myBlock.classList.remove("swiper-block-lock");
   }
 }
-function initSliders() {
+function syncCompareTable(swiper) {
+  const compareBlock = swiper.el.closest("[data-compare]");
+  if (!compareBlock) return;
+  const tbody = compareBlock.querySelector("[data-compare-table] tbody");
+  if (!tbody) return;
+  const firstRow = tbody.querySelector(".row-data");
+  if (!firstRow) return;
+  const firstCell = firstRow.querySelector("td");
+  if (!firstCell) return;
+  const cellWidth = firstCell.offsetWidth;
+  const offset = swiper.activeIndex * cellWidth;
+  tbody.scrollTo({
+    left: offset,
+    behavior: "smooth"
+  });
+}
+window.initSliders = function() {
   if (document.querySelector(".hero__slider")) {
     new Swiper(".hero__slider", {
       // <- Вказуємо склас потрібного слайдера
@@ -188,5 +224,53 @@ function initSliders() {
       });
     });
   }
-}
-document.querySelector("[data-fls-slider]") ? window.addEventListener("load", initSliders) : null;
+  if (document.querySelector(".compare-block__slider")) {
+    document.querySelectorAll(".compare-block__slider").forEach((el) => {
+      const parentSlider = el.parentElement.closest("[data-compare]");
+      const swiperNextBtn = parentSlider.querySelector(".swiper-button-next");
+      const swiperPrevBtn = parentSlider.querySelector(".swiper-button-prev");
+      const swiperScrollbar = parentSlider.querySelector(".swiper-scrollbar");
+      resizableSwiper("(min-width: 40.6238em)", el, {
+        modules: [Navigation, Scrollbar],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 3,
+        spaceBetween: 20,
+        speed: 350,
+        // Пагінація
+        navigation: {
+          prevEl: swiperPrevBtn,
+          nextEl: swiperNextBtn
+        },
+        scrollbar: {
+          el: swiperScrollbar,
+          draggable: true
+        },
+        breakpoints: {
+          649.98: {
+            slidesPerView: 2,
+            spaceBetween: 12
+          },
+          991.98: {
+            slidesPerView: 3,
+            spaceBetween: 20
+          }
+        },
+        on: {
+          init(sw) {
+            toggleLockSliderClass(this);
+            syncCompareTable(this);
+          },
+          slideChange(sw) {
+            toggleLockSliderClass(this);
+            syncCompareTable(this);
+          },
+          resize(sw) {
+            toggleLockSliderClass(this);
+          }
+        }
+      });
+    });
+  }
+};
+document.querySelector("[data-fls-slider]") ? window.addEventListener("load", window.initSliders) : null;
