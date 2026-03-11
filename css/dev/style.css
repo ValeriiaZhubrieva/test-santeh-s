@@ -350,7 +350,16 @@ body {
   gap: 8px;
 }
 .social-block__link {
-  padding: 10px;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social-block__link svg,
+.social-block__link img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }
 
 input[type=text],
@@ -426,6 +435,7 @@ textarea.input {
   font-size: 14px;
   line-height: 120%;
   color: var(--clr-red);
+  padding: 0 16px;
 }
 
 .swiper-button-prev,
@@ -1067,13 +1077,13 @@ textarea.input {
 }
 
 hr {
-  border-bottom: 4px solid var(--clr-gray-350);
+  border-bottom: 3px solid var(--clr-gray-350);
 }
 hr:not(:first-child) {
-  margin-top: 32px;
+  margin-top: 30px;
 }
 hr:not(:last-child) {
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
 .review-block {

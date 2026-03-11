@@ -1,0 +1,114 @@
+.block-error {
+  margin-bottom: 120px;
+}
+.block-error__container {
+  text-align: center;
+}
+.block-error__container > * {
+  margin-inline: auto;
+}
+.block-error__container > *:not(:last-child) {
+  margin-bottom: 15px;
+}
+.block-error__top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.block-error__top:not(:last-child) {
+  margin-bottom: 40px;
+}
+.block-error__title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+.block-error__img {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translate(-50%, 0px);
+  display: grid;
+}
+.block-error__img img {
+  width: 100%;
+  object-fit: cover;
+}
+.block-error__subtitle {
+  font-weight: 500;
+}
+.block-error__btn {
+  max-width: 278px;
+}
+.block-error__btn:not(:first-child) {
+  margin-top: 20px;
+}
+.block-error__btn:not(:last-child) {
+  margin-bottom: 20px;
+}
+.block-error__text {
+  font-weight: 400;
+}
+.block-error__text {
+  line-height: 130%;
+}
+@media (width <= 61.99875em) {
+  .block-error {
+    padding-top: 36px;
+  }
+}
+@media (width <= 47.99875em) {
+  .block-error {
+    margin-bottom: 80px;
+  }
+  .block-error__title {
+    position: static;
+  }
+}
+@media (width <= 29.99875em) {
+  .block-error__title {
+    font-size: 32px;
+  }
+  .block-error__subtitle {
+    font-size: 24px;
+  }
+  .block-error__btn {
+    max-width: 100%;
+  }
+  .block-error__text {
+    font-size: 18px;
+  }
+}
+@media (width > 29.99875em) and (width <= 107em) {
+  .block-error__title {
+    font-size: clamp( 32px , 19.5331893963px  +  2.5973604325vw , 64px );
+  }
+  .block-error__subtitle {
+    font-size: clamp( 24px , 19.3249460236px  +  0.9740101622vw , 36px );
+  }
+  .block-error__text {
+    font-size: clamp( 18px , 15.6624730118px  +  0.4870050811vw , 24px );
+  }
+}
+@media (width > 61.99875em) and (width <= 107em) {
+  .block-error {
+    padding-top: clamp( 36px , -10.8421988278px  +  4.722091053vw , 70px );
+  }
+}
+@media (width > 107em) {
+  .block-error {
+    padding-top: 70px;
+  }
+  .block-error__title {
+    font-size: 64px;
+  }
+  .block-error__subtitle {
+    font-size: 36px;
+  }
+  .block-error__text {
+    font-size: 24px;
+  }
+}

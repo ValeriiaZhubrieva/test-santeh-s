@@ -144,7 +144,6 @@
 @media (width <= 61.99875em) {
   .header {
     padding: 12px 0;
-    background: linear-gradient(to bottom, var(--clr-white) 50%, transparent 100%);
   }
   .header__block {
     border-radius: 16px;
