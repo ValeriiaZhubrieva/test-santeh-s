@@ -129,6 +129,9 @@
   font-weight: 700;
   background-color: var(--clr-white);
 }
+.compare-block__table tr.row-data td:not(:last-child) {
+  border-right: 1px solid var(--clr-gray-50);
+}
 .compare-block__table td {
   padding: 10px;
 }
@@ -310,9 +313,6 @@
   .compare-block__table tr.row-data td {
     width: 180px;
     font-weight: 600;
-  }
-  .compare-block__table tr.row-data td:not(:last-child) {
-    border-right: 1px solid var(--clr-gray-50);
   }
   .compare-block__table tr:not(:last-child) {
     border-bottom: 1px solid var(--clr-gray-50);
