@@ -82,6 +82,13 @@ let slideDown = (target, duration = 500, showmore = 0) => {
     }, duration);
   }
 };
+let slideToggle = (target, duration = 500) => {
+  if (target.hidden) {
+    return slideDown(target, duration);
+  } else {
+    return slideUp(target, duration);
+  }
+};
 let bodyLockStatus = true;
 let bodyUnlock = (delay = 500) => {
   if (bodyLockStatus) {
@@ -168,8 +175,9 @@ export {
   bodyLockStatus as c,
   dataMediaQueries as d,
   slideDown as e,
-  getHash as f,
+  slideToggle as f,
   gotoBlock as g,
+  getHash as h,
   isMobile as i,
   slideUp as s
 };

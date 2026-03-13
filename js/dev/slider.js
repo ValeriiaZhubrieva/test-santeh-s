@@ -272,5 +272,119 @@ window.initSliders = function() {
       });
     });
   }
+  if (document.querySelector(".brands__slider")) {
+    document.querySelectorAll(".brands__slider").forEach((el) => {
+      const parentSlider = el.parentElement;
+      const swiperNextBtn = parentSlider.querySelector(".swiper-button-next");
+      const swiperPrevBtn = parentSlider.querySelector(".swiper-button-prev");
+      const swiperPagination = parentSlider.querySelector(".swiper-pagination");
+      new Swiper(el, {
+        modules: [Navigation, Pagination],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 5,
+        spaceBetween: 8,
+        speed: 800,
+        // Пагінація
+        pagination: {
+          el: swiperPagination,
+          clickable: true
+        },
+        // Кнопки "вліво/вправо"
+        navigation: {
+          prevEl: swiperPrevBtn,
+          nextEl: swiperNextBtn
+        },
+        // Брейкпоінти
+        breakpoints: {
+          319: {
+            slidesPerView: 2,
+            spaceBetween: 8
+          },
+          479.98: {
+            slidesPerView: 3,
+            spaceBetween: 8
+          },
+          649.98: {
+            slidesPerView: 4,
+            spaceBetween: 8
+          },
+          1099.98: {
+            slidesPerView: 5,
+            spaceBetween: 8
+          }
+        },
+        // Події
+        on: {
+          init(sw) {
+            toggleLockSliderClass(this);
+          },
+          slideChange(sw) {
+            toggleLockSliderClass(this);
+          },
+          resize(sw) {
+            toggleLockSliderClass(this);
+          }
+        }
+      });
+    });
+  }
+  if (document.querySelector(".articles__slider")) {
+    document.querySelectorAll(".articles__slider").forEach((el) => {
+      const parentSlider = el.parentElement;
+      const swiperNextBtn = parentSlider.querySelector(".swiper-button-next");
+      const swiperPrevBtn = parentSlider.querySelector(".swiper-button-prev");
+      const swiperPagination = parentSlider.querySelector(".swiper-pagination");
+      new Swiper(el, {
+        modules: [Navigation, Pagination],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 3,
+        spaceBetween: 36,
+        speed: 800,
+        // Пагінація
+        pagination: {
+          el: swiperPagination,
+          clickable: true
+        },
+        // Кнопки "вліво/вправо"
+        navigation: {
+          prevEl: swiperPrevBtn,
+          nextEl: swiperNextBtn
+        },
+        // Брейкпоінти
+        breakpoints: {
+          319: {
+            slidesPerView: 1,
+            spaceBetween: 20
+          },
+          479.98: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          991.98: {
+            slidesPerView: 3,
+            spaceBetween: 24
+          },
+          1439.98: {
+            slidesPerView: 3,
+            spaceBetween: 36
+          }
+        },
+        // Події
+        on: {
+          init(sw) {
+            toggleLockSliderClass(this);
+          },
+          slideChange(sw) {
+            toggleLockSliderClass(this);
+          },
+          resize(sw) {
+            toggleLockSliderClass(this);
+          }
+        }
+      });
+    });
+  }
 };
 document.querySelector("[data-fls-slider]") ? window.addEventListener("load", window.initSliders) : null;

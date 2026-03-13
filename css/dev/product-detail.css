@@ -50,6 +50,9 @@
 .product-detail__slider:not(.swiper-initialized) .swiper-slide:nth-child(n+2) {
   display: none;
 }
+.product-detail__slider:not(.swiper-initialized) .product-detail__arrows {
+  display: none;
+}
 .product-detail__slide {
   aspect-ratio: 1/1;
   display: flex;
@@ -293,6 +296,9 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
+}
+.product-detail__buy-block .product-detail__actions {
+  align-self: end;
 }
 .product-detail__buy-info {
   display: flex;

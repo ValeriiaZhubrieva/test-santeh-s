@@ -20,7 +20,13 @@
 .proposals__slider:not(.swiper-initialized) .swiper-wrapper {
   display: flex;
 }
+.proposals__slider:not(.swiper-initialized) .swiper-slide {
+  width: 100%;
+}
 .proposals__slider:not(.swiper-initialized) .swiper-slide:nth-child(n+6) {
+  display: none;
+}
+.proposals__slider:not(.swiper-initialized) ~ .proposals__nav {
   display: none;
 }
 .proposals__slider .swiper-slide:not(:last-child) {

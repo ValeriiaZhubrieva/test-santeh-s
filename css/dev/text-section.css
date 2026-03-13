@@ -26,7 +26,7 @@
 .text-section__body h4,
 .text-section__body h5,
 .text-section__body h6 {
-  font-weight: 600;
+  font-weight: 500;
   line-height: 130%;
 }
 .text-section__body h1 span,
