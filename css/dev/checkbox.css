@@ -128,20 +128,21 @@
 @media (width <= 29.99875em) {
   .options__label {
     padding-left: 32px;
+    gap: 4px;
   }
   .options__text {
-    font-size: 22px;
+    font-size: 18px;
   }
   .options__subtext {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 @media (width > 29.99875em) and (width <= 107em) {
   .options__text {
-    font-size: clamp( 22px , 21.2208243373px  +  0.162335027vw , 24px );
+    font-size: clamp( 18px , 15.6624730118px  +  0.4870050811vw , 24px );
   }
   .options__subtext {
-    font-size: clamp( 18px , 17.2208243373px  +  0.162335027vw , 20px );
+    font-size: clamp( 16px , 14.4416486745px  +  0.3246700541vw , 20px );
   }
 }
 @media (width > 107em) {

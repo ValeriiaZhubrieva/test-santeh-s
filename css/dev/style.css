@@ -24,6 +24,8 @@ body {
 	-webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-optical-sizing: auto;
+	font-style: normal;
 }
 input,
 button,
@@ -75,13 +77,9 @@ address {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
 }
-@font-face {font-family: Inter;font-display: swap;src: url("../assets/fonts/Inter-SemiBold.woff2") format("woff2");font-weight: 600;font-style: normal;}
-@font-face {font-family: Inter;font-display: swap;src: url("../assets/fonts/Inter-Regular.woff2") format("woff2");font-weight: 400;font-style: normal;}
-@font-face {font-family: Inter;font-display: swap;src: url("../assets/fonts/Inter-Medium.woff2") format("woff2");font-weight: 500;font-style: normal;}
-@font-face {font-family: Inter;font-display: swap;src: url("../assets/fonts/Inter-Bold.woff2") format("woff2");font-weight: 700;font-style: normal;}
 
 :root {
-  --font-family: Inter, sans-serif;
+  --font-family: "Inter", sans-serif;
   --viewport-height: 100vh;
   /* --- Базовая палитра (Base) --- */
   --clr-black: #000;
@@ -1019,11 +1017,13 @@ textarea.input {
   height: 24px;
   transition: background 0.2s, border 0.2s;
 }
-.ocf-checkbox[disabled] {
+.ocf-checkbox[disabled],
+.ocf-checkbox .disabled {
   color: var(--clr-black-30);
   cursor: default;
 }
-.ocf-checkbox[disabled]::before {
+.ocf-checkbox[disabled]::before,
+.ocf-checkbox .disabled::before {
   border-color: var(--clr-gray-50);
   background-color: var(--clr-white);
   box-shadow: none;
@@ -1752,10 +1752,10 @@ hr:not(:last-child) {
     color: var(--clr-gray-800);
     box-shadow: none;
   }
-  .ocf-checkbox:not([disabled]):hover {
+  .ocf-checkbox:not([disabled], .disabled):hover {
     color: var(--clr-black);
   }
-  .ocf-checkbox:not([disabled]):hover::before {
+  .ocf-checkbox:not([disabled], .disabled):hover::before {
     background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 10 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.658203 3.99609L4.6582 7.49609L8.6582 0.496094' stroke='%23cbcdd7' stroke-width='2'/%3E%3C/svg%3E%0A");
   }
   .ocf-checkbox.is-active:hover {

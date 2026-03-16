@@ -59,7 +59,7 @@
     padding-block: 24px;
   }
   .delivery__items {
-    gap: 20px;
+    gap: 36px;
   }
 }
 @media (width <= 47.99875em) {

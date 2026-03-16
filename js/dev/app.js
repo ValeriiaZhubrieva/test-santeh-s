@@ -227,11 +227,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function buildLocalNavigation() {
   const sections = document.querySelectorAll("[data-scroll-section]");
   window.addEventListener("scroll", function() {
-    let offset = 100;
+    let offset = 140;
     let scroll_y = window.pageYOffset + offset;
     sections.forEach((current) => {
       const section_height = current.offsetHeight;
-      const section_top = current.offsetTop - 100;
+      const section_top = current.offsetTop - 140;
       const sectionId = current.getAttribute("id");
       const links = document.querySelectorAll(`[data-fls-scrollto="#${sectionId}"]`);
       if (links.length > 0) {

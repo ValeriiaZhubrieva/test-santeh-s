@@ -83,6 +83,7 @@
 }
 .text-section__body img {
   display: block;
+  margin-inline: auto;
   border-radius: 40px;
 }
 .text-section__body img:not(:first-child) {

@@ -77,7 +77,11 @@ window.initMenu = function() {
       btn.classList.remove(activeBtnClass);
     });
     html.classList.remove("menu-open");
-    html.className = [...html.classList].filter((cls) => !cls.startsWith("menu-open--")).join(" ");
+    html.classList.forEach((cls) => {
+      if (cls.startsWith("menu-open--")) {
+        html.classList.remove(cls);
+      }
+    });
     if (removeTrap) {
       removeTrap();
       removeTrap = null;
@@ -188,6 +192,12 @@ window.initMenu = function() {
       });
     });
   }
+  window.menuAPI ??= {};
+  Object.assign(window.menuAPI, {
+    close: closeAllMenus,
+    open: openMenu,
+    toggle: toggleMenu
+  });
 };
 document.addEventListener("DOMContentLoaded", window.initMenu);
 window.initSubmenu = function() {

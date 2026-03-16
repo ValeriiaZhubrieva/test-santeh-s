@@ -519,7 +519,7 @@
 }
 @media (width <= 61.99875em) {
   .aboutus__top-body {
-    font-size: 22px;
+    font-size: 16px;
   }
   .aboutus__features {
     align-items: stretch;
@@ -527,13 +527,13 @@
     gap: 40px;
   }
   .aboutus__features-logo {
-    max-width: 235px;
+    max-width: 200px;
   }
   .aboutus__features-title {
-    font-size: 38px;
+    font-size: 32px;
   }
   .aboutus__features-text {
-    font-size: 22px;
+    font-size: 18px;
   }
   .aboutus__features-decor {
     align-self: center;
@@ -608,6 +608,9 @@
     border-radius: 16px;
     padding: 24px 16px;
   }
+  .aboutus__text {
+    font-size: 16px;
+  }
   .aboutus__text:not(:last-child) {
     margin-bottom: 40px;
   }
@@ -654,6 +657,12 @@
   }
   .aboutus__advantages-items {
     border-radius: 12px;
+  }
+  .aboutus__advantages-title {
+    font-size: 18px;
+  }
+  .aboutus__advantages-text {
+    font-size: 16px;
   }
 }
 @media (width <= 29.99875em) {
@@ -724,13 +733,13 @@
 }
 @media (width > 61.99875em) and (width <= 107em) {
   .aboutus__top-body {
-    font-size: clamp( 22px , 19.2445765395px  +  0.2777700619vw , 24px );
+    font-size: clamp( 16px , 4.9783061582px  +  1.1110802478vw , 24px );
   }
   .aboutus__features-title {
-    font-size: clamp( 38px , 2.179495014px  +  3.6110108053vw , 64px );
+    font-size: clamp( 32px , -12.0867753674px  +  4.4443209911vw , 64px );
   }
   .aboutus__features-text {
-    font-size: clamp( 22px , 19.2445765395px  +  0.2777700619vw , 24px );
+    font-size: clamp( 18px , 9.7337296186px  +  0.8333101858vw , 24px );
   }
 }
 @media (width > 107em) {
