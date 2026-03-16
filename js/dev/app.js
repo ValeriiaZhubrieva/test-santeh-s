@@ -65,26 +65,6 @@ if (toggleActiveBtns.length) {
     });
   });
 }
-const productCards = document.querySelectorAll(".product-card");
-if (productCards.length) {
-  productCards.forEach((card) => {
-    const buyBtns = card.querySelectorAll("[data-toggle-buy]");
-    if (buyBtns.length) {
-      buyBtns.forEach((buy) => {
-        buy.addEventListener("click", () => {
-          const isActive = buy.classList.contains("is-active");
-          buyBtns.forEach((btn) => {
-            if (isActive) {
-              btn.classList.remove("is-active");
-            } else {
-              btn.classList.add("is-active");
-            }
-          });
-        });
-      });
-    }
-  });
-}
 function initScrollBlocks() {
   const scrollContainers = document.querySelectorAll("[data-scroll-block]");
   if (!scrollContainers.length) return;
